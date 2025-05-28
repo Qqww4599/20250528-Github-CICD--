@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: GitHub Actions Demo
+name: Run Main Python Script
+run-name: Run Main Python Script
 
 # 觸發此 action 的時機
 on:
@@ -13,4 +13,7 @@ jobs:
   demo:
     runs-on: ubuntu-latest
     steps:
-      - run: echo '執行成功'
+      - name: echo success  # 先把程式碼 checkout 下來
+        run: echo '執行成功'
+      - name: Run main.py  # 前面都是在安裝 Python 環境，這裡才是真的去執行 main.py 的程式
+        run: python main.py
